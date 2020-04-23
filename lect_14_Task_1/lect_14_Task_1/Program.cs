@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata.Ecma335;
 
 namespace lect_14_Task_1
 {
@@ -7,8 +8,9 @@ namespace lect_14_Task_1
         static void Main(string[] args)
         {
             string text = "Hello, guys";
-            string text1 = text.StringAdd();
-            Console.WriteLine(text1);
+            string text1 = "...";
+            string text2 = text.StringAdd(text1);
+            Console.WriteLine(text2);
 
             Console.Read();
         }
@@ -16,12 +18,12 @@ namespace lect_14_Task_1
 
     public static class StringExt
     {
-        public static string StringAdd(this string str)
+        public static string StringAdd(this string str, string text1)
         {
 
-            str = str.Substring(5);
-            str = str.Insert(6, "...");
-
+            str = str.Substring(5).Insert(6, text1);
+            return str;
         }
+        
     }
 }
